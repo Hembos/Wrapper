@@ -4,8 +4,6 @@ project(Wrapper)
 
 set(SOURCES
         Main.cpp
-        Wrapper.cpp
-		Engine.cpp
 )
 
 set(HEADERS
