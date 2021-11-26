@@ -2,12 +2,19 @@
 #include <functional>
 #include <vector>
 #include <map>
-#include <iostream>
 #include <functional>
 
 class Wrapper
 {
 public:
+	/// <summary>
+	/// Wrapper constructor
+	/// </summary>
+	/// <typeparam name="baseClass">the class in which the method is stored</typeparam>
+	/// <typeparam name="...Args">arguments</typeparam>
+	/// <param name="instance"an instance of the class over whose method you want to make a wrapper></param>
+	/// <param name="method">method for which you want to make a wrapper</param>
+	/// <param name="arguments">default arguments and their names</param>
 	template <typename baseClass, typename... Args>
 	Wrapper(baseClass* instance, int(baseClass::* method)(Args...), std::vector<std::pair<std::string, int>> arguments)
 	{
@@ -25,6 +32,11 @@ public:
 		};
 	}
 
+	/// <summary>
+	/// method call with passed arguments
+	/// </summary>
+	/// <param name="arguments">arguments passed to the method</param>
+	/// <returns>method execution result</returns>
 	int funcExecute(std::map<std::string, int> arguments)
 	{
 		std::vector<int> args;
